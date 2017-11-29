@@ -1,0 +1,118 @@
+.buy-card {
+    background: url(../../../assets/buy_card.svg) no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain;
+    height: 480px;
+    width: 430px;
+    display: table;
+    text-align: center;
+}
+
+.buy-card > div {
+}
+
+.buy-body {
+    align-content: center;
+    vertical-align: middle;
+    display: table-cell;
+    text-align: left;
+}
+
+.body-title {
+    font-family: Quicksand, serif;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 32px;
+    color: #253237;
+
+}
+
+.body-text {
+    font-family: Quicksand, serif;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 16px;
+
+    color: #253237;
+}
+
+.total-text {
+    font-family: Quicksand, serif;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    font-size: 24px;
+    color: #253237;
+}
+
+.total-text p {
+    margin: 0;
+    font-family: Quicksand, serif;
+}
+
+.centered {
+    align-content: center;
+    text-align: center;
+}
+
+
+.lines2 {
+    border-bottom: thick dotted #ff0000;
+}
+
+.greats {
+    margin-left: 4%;
+    margin-right: 4%;
+    height: 115px;
+}
+
+.divbodycontent {
+    height: 230px;
+    position: relative;
+}
+
+.divfootercontent {
+    height: 108px;
+    position: relative;
+}
+
+.footercontent {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.bodycontent {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 100%;
+}
+
+.ticketsimage {
+    height: 100%;
+}
+
+.divticketsimage{
+    height: 31.9%;
+    padding-top: 10px;
+    padding-bottom: 12px;
+}
+
+.LimaCityPassText {
+    height: 100%;
+}
+
+.divLimaCityPassText {
+    height: 11%;
+    padding-bottom: 12px;
+}
+
+.divquantitytickets {
+    height: 18.36%;
+    padding-bottom: 12px;
+    display: inline-block;
+}
+

@@ -1,0 +1,6 @@
+.background {
+    width: 100%;
+    height: -webkit-fill-available;
+    background-color: transparent;
+    text-transform: uppercase;
+}

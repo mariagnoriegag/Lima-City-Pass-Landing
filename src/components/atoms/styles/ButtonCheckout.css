@@ -1,0 +1,56 @@
+.divbutton {
+    padding: 5px;
+    background: #9887FF;
+    border-radius: 40.7px;
+    display: block;
+    text-align: center;
+    width: fit-content;
+    padding-bottom: 14px;
+    padding-top: 14px;
+    padding-right: 20px;
+}
+
+.textbutton {
+    font-family: Quicksand, Serif;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 15px;
+    color: #F2F2F2;
+}
+
+.lateralpadding {
+    padding-left: 9px;
+    padding-right: 10px;
+    width: 100%;
+}
+
+.arrow {
+    height: 13px;
+    width: auto;
+    -webkit-transform: translate(0,1px);
+    transform: translate(0,1px);
+
+}
+
+.divbutton:hover {
+    background-color: #5F4FC9;
+    -webkit-transition: background-color 90ms linear;
+    -ms-transition: background-color 90ms linear;
+    transition: background-color 90ms linear;
+    cursor: pointer;
+}
+
+.divbutton:hover img {
+    position: relative;
+    transition: transform 1s ease-in 0s;
+    animation: mymove 0.7s infinite;
+    animation-delay: 0s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes mymove {
+    from {left: 0px;}
+    50% {left: 5px}
+    to {left: 0px;}
+}
