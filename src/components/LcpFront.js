@@ -1,7 +1,8 @@
-// import { Grid, Row, Col } from 'react-flexbox-grid';
+ import { Grid, Row, Col } from 'react-flexbox-grid';
 import React, { Component } from 'react';
 import LcpToolbar from './LcpToolbar';
 import LcpLogo from './LcpLogo';
+//import { Grid, Row, Col } from 'react-material-responsive-grid';
 
 
 import "../styles/Front.css"
@@ -50,12 +51,16 @@ class LcpFront extends Component {
     render() {
         return (
             <div id='lcp'>
-                <div className="background" style={{'backgroundImage': `url(${this.background}`}}>
-                    <LcpToolbar elements={this.toolbarElements}/>
-                    <img src={this.logo} style={{'height': (this.state.windowHeight*0.5 - this.state.scrollPosition)}}/>
+                <div className="background" style={{'backgroundImage': `url(${this.background}`, 'display': 'table'}}>
+                    <div style={{'position': 'absolute', 'width': '100%'}}>
+                        <LcpToolbar elements={this.toolbarElements} />
+                    </div>
+                    <div style={{'display':'table-cell', 'vertical-align':'middle'}}>
+                        <img src={this.logo} style={{'height': (this.state.windowHeight*0.5 - this.state.scrollPosition*0.95)}}/>
+                    </div>
                 </div>
-
             </div>
+
 
 
         )
