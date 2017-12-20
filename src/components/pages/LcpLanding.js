@@ -26,6 +26,9 @@ import CreditCard3 from '../../assets/american-express-logo.svg'
 import CreditCard4 from '../../assets/paypal.svg'
 import '../../App.css'
 
+import * as Scroll from 'react-scroll';
+import { Link, DirectLink, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+
 class LcpLanding extends Component {
     constructor(props) {
         super(props);
@@ -98,8 +101,8 @@ class LcpLanding extends Component {
         ];
         this.footercontent = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non blandit tellus, sed iaculis odio. Nullam convallis leo at porta molestie. Aliquam sagittis erat vitae est mollis tristique. '
         this.lcptitles = [
-            {text: this.lcp_title, href: '#lcp'},{text: this.whatis_title, href: '#whatis'},
-            {text: this.howto_title, href: '#howto'}
+            {text: this.lcp_title, href: '#lcp', to: 'lcp'},{text: this.whatis_title, href: '#whatis', to: 'whatis'},
+            {text: this.howto_title, href: '#howto', to:'howto'}
         ];
         this.creditcards = [
             {image: CreditCard1}, {image: CreditCard2}, {image: CreditCard3}, {image: CreditCard4}
@@ -110,20 +113,40 @@ class LcpLanding extends Component {
             {text:'Cookies', href: '#'}, {text:'Legal Notice', href: '#'}, {text: 'Site map', href: '#'}
         ];
         this.toolbar = [
-            {title: this.whatis_title, href:'#whatis'}, {title: this.howto_title, href:'#howto'},
-            {title: 'Other benefits', href:'#benefits'}
+            {title: this.whatis_title, href:'#whatis', to: 'whatis'}, {title: this.howto_title, href:'#howto', to:'howto'},
+            {title: 'Other benefits', href:'#benefits', to: 'benefits'}
         ]
+    }
+
+    componentDidMount() {
+
+        Events.scrollEvent.register('begin', function(to, element) {
+            console.log("begin", arguments);
+        });
+
+        Events.scrollEvent.register('end', function(to, element) {
+            console.log("end", arguments);
+        });
+
+        scrollSpy.update();
+
+    }
+    componentWillUnmount() {
+        Events.scrollEvent.remove('begin');
+        Events.scrollEvent.remove('end');
     }
 
     render() {
         return (
             <div className="App" >
-
+                <div id='lcp'>
                 <LcpFront
                     background={BackgroundImage}
                     logo={LcpLogo}
                     toolbarElements={this.toolbar}/>
+                </div>
 
+                <div id='whatis'>
                 <LcpWhatsIncluded
                     items={this.carouselImages}
                     background={BackgroundWhatsIncluded}
@@ -131,7 +154,9 @@ class LcpLanding extends Component {
                     title={this.whatis_title}
                     contentcenter={this.whats_contentcenter}
                     contentleft={this.whats_contentleft}/>
+                </div>
 
+                <div id='howto'>
                 <LcpHowToUse
                     items={this.howtouseImages}
                     backgroundDesktop={BacgroundHowtoUseDesktop}
@@ -140,12 +165,15 @@ class LcpLanding extends Component {
                     hashtag={this.hashtag}
                     ilovelimaimage={IloveLima}
                     hashtagcontent={this.hashtagcontent}/>
+                </div>
 
+                <div id='benefits'>
                 <LcpDiscounts
                     title={this.exclusiveediscounts}
                     items={this.discounts}
                     backgroundDesktop={BackgroundDiscountsDesktop}
                     backgroundMovil={BackgroundDiscountsMovil}/>
+                </div>
 
                 <LcpFooter logo={LcpLogo}
                            content={this.footercontent}

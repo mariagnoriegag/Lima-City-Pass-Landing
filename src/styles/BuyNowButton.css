@@ -32,7 +32,7 @@
 .Button:hover {
      background: lighten(#F4157E, 2%);
      box-shadow: 0 8px 65px -5px #CD106E;
-    font-size: 18px;
+     font-size: 18px;
  }
 
 .Button:active {

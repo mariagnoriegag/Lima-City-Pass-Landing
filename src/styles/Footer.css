@@ -59,6 +59,10 @@
     font-weight: 100;
     letter-spacing: 1px;
     margin: 10% 15% 10% 15%;
+
+}
+.column2 a {
+    cursor: pointer;
 }
 
 .column3 {
@@ -68,6 +72,9 @@
     font-weight: 100;
     letter-spacing: 1px;
     margin: 9% 15% 10% 15%;
+}
+.column3 a {
+    cursor: pointer;
 }
 
 .verticalaligndiv {

@@ -7,9 +7,10 @@ import LcpLogo from './LcpLogo';
 
 import "../styles/Front.css"
 
-import LcpLogoImage from '../assets/limalogowhite.png'
+import LcpLogoImage from '../assets/limalogowhite.png';
+ import {Events, scrollSpy} from "react-scroll/modules/index";
 
-class LcpFront extends Component {
+ class LcpFront extends Component {
 
     constructor(props) {
         super(props);
@@ -35,11 +36,13 @@ class LcpFront extends Component {
     componentDidMount () {
         window.addEventListener('scroll', this.handleScroll);
         window.addEventListener("resize", this.updateDimensions);
+
     };
 
     componentWillUnmount () {
         window.removeEventListener('scroll', this.handleScroll);
         window.removeEventListener("resize", this.updateDimensions);
+
     };
 
     handleScroll () {
@@ -50,7 +53,7 @@ class LcpFront extends Component {
 
     render() {
         return (
-            <div id='lcp'>
+            <div >
                 <div className="background" style={{'backgroundImage': `url(${this.background}`, 'display': 'table'}}>
                     <div style={{'position': 'absolute', 'width': '100%'}}>
                         <LcpToolbar elements={this.toolbarElements} />

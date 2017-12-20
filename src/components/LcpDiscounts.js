@@ -1,6 +1,7 @@
     import React, { Component } from 'react';
     import "../styles/Discounts.css";
     import { Grid, Row, Col } from 'react-material-responsive-grid';
+    import ButtonDiscounts from '../components/LcpButtonDiscounts'
 
     class Discounts extends Component {
 
@@ -35,20 +36,22 @@
 
         render () {
             return (
-                <div id='benefits'>
+                <div >
                     <Grid  style={{'margin':0}}>
                         <Col hiddenDown="sm" md={12} lg={12} xl={12} className='containerdiscounts' style={{'padding':0, 'backgroundImage': `url(${this.backgroundDesktop}`}}>
-                            <Row className='withoutmarpadd' style={{'height':'-webkit-fill-available', 'margin-left':'10%', 'margin-right':'10%'}}>
+                            <Row className='withoutmarpadd' style={{'height':'-webkit-fill-available', }}>
                                 <Col hiddenDown="sm" md={12} lg={12} className='inline'>
                                     <div className='title' >{this.title}</div>
                                 </Col>
-                                <Row style={{'width': '100%', 'margin-top':'30px', 'margin-left':0, 'margin-right':0}}>
+                                <Row style={{'width': '100%', 'margin-top':'30px', 'margin-left':0, 'margin-right':0, 'padding':'0 10% 3% 10%'}}>
                                 {this.items.map((item) =>
                                     <Col hiddenDown="sm" md={4} lg={4} xl={4} className='inline'>
                                         <div className='' style={{'width': (this.state.windowWidth * 0.25)}}>
-                                            <img className='' src={item.image} style={{'width':(this.state.windowWidth * 0.25)}}></img>
+                                            <img className='' src={item.image} style={{'width':(this.state.windowWidth * 0.21)}}></img>
                                         </div>
-                                        <div className='titlediscounts'>{item.titlebutton}</div>
+                                        <div className='titlediscounts' style={{'margin':'0 0 0 0 0'}}>
+                                            <ButtonDiscounts name={item.titlebutton}/>
+                                        </div>
                                     </Col>
                                 )}
                                 </Row>
@@ -69,15 +72,15 @@
                                             <div className='divimagesHowtouse' style={{'height': ((this.state.windowWidth * 0.70) * 1.46), 'width': (this.state.windowWidth * 0.70)}}>
                                                 <img className='imagesHowtouse' src={item.image} style={{'height': ((this.state.windowWidth * 0.70) * 1.46), 'width': (this.state.windowWidth * 0.70)}}></img>
                                             </div>
-                                            <div className='titlediscounts'>{item.titlebutton}</div>
+                                            <div className='titlediscounts'>
+                                            <ButtonDiscounts name={item.titlebutton}/>
+                                            </div>
                                         </Col>
                                     </Row>
                                 )}
                             </Row>
                         </Col>
                     </Grid>
-
-
                 </div>
             )
         }

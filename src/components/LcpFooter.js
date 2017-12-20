@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import "../styles/Footer.css";
 import { Grid, Row, Col } from 'react-material-responsive-grid';
+import * as Scroll from 'react-scroll';
+import { Link, DirectLink, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 
 class Footer extends Component {
     constructor(props) {
@@ -28,9 +30,21 @@ class Footer extends Component {
     }
     componentDidMount () {
         window.addEventListener("resize", this.updateDimensions);
+
+        Events.scrollEvent.register('begin', function(to, element) {
+            console.log("begin", arguments);
+        });
+
+        Events.scrollEvent.register('end', function(to, element) {
+            console.log("end", arguments);
+        });
+
+        scrollSpy.update();
     }
     componentWillUnmount () {
         window.removeEventListener("resize", this.updateDimensions);
+        Events.scrollEvent.remove('begin');
+        Events.scrollEvent.remove('end');
     }
 
     render () {
@@ -48,7 +62,7 @@ class Footer extends Component {
                                 <Row className='withoutmarpadd column2'>
                                     {this.titles.map((title) =>
                                         <Col hiddenDown="sm" md={12} lg={12} xl={12} className='titlesspace uppertext'>
-                                            <a href={title.href}>{title.text}</a>
+                                            <Link to={title.to} spy={true} smooth={true} delay={0} duration={800} offset={0}>{title.text}</Link>
                                         </Col>
                                     )}
                                     {this.creditcard.map((card) =>

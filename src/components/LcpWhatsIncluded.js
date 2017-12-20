@@ -3,6 +3,10 @@ import "../styles/WhatsIncluded.css";
 import "../styles/flowtextWhatsIncluded.css";
 import { Grid, Row, Col } from 'react-material-responsive-grid';
 import LcpCarousel from '../components/LcpCarousel';
+import * as Scroll from 'react-scroll';
+import { Link, DirectLink, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+
+
 class WhatsIncluded extends Component {
 
     constructor(props) {
@@ -34,18 +38,29 @@ class WhatsIncluded extends Component {
     }
     componentDidMount () {
         window.addEventListener("resize", this.updateDimensions);
+        Events.scrollEvent.register('begin', function(to, element) {
+            console.log("begin", arguments);
+        });
+
+        Events.scrollEvent.register('end', function(to, element) {
+            console.log("end", arguments);
+        });
+
+        scrollSpy.update();
     }
     componentWillUnmount () {
         window.removeEventListener("resize", this.updateDimensions);
+        Events.scrollEvent.remove('begin');
+        Events.scrollEvent.remove('end');
     }
     render () {
         return (
-            <div id='whatis'>
+            <div >
                 <Grid style={{'margin': 0, 'padding': 0, 'width':'100%'}}>
-                    <Col hiddenDown="sm" md={12} lg={12} xl={12} className='' style={{'padding':0}}>
-                        <Row  className='withoutmarpadd' style={{'height':'-webkit-fill-available', 'margin':0, 'padding':0}}>
-                            <Row className='containercontentwhatisincluded' style={{'padding':'0 0 3% 0', 'backgroundImage': `url(${this.background}`}}>
-                                <Col hiddenDown="sm"  md={12} lg={12} style={{'padding-left':0, 'padding-right':0}}>
+                    <Col hiddenDown="sm" md={12} lg={12} xl={12} className='' style={{'padding':'0 0 0 0'}}>
+                        <Row className='withoutmarpadd' style={{'height':'-webkit-fill-available', 'margin':0, 'padding':0}}>
+                            <Row className='containercontentwhatisincluded' style={{'padding':'0 10% 3% 10%', 'backgroundImage': `url(${this.background}`}}>
+                                <Col hiddenDown="sm"  md={12} lg={12} style={{'padding':'0 0 20px 0'}}>
                                     <div className='titlewhatis' >{this.title}</div>
                                 </Col>
                                 <Col hiddenDown="sm" md={4} lg={4} className='center-elements inline' style={{'padding-left':0, 'padding-right':0}}>

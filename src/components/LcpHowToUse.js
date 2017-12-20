@@ -2,6 +2,7 @@
     import "../styles/HowToUse.css";
     import "../styles/flowtextHowToUse.css";
     import { Grid, Row, Col } from 'react-material-responsive-grid';
+    import ButtonHowToUse from '../components/LcpButtonHowToUse'
 
     class HowToUse extends Component {
 
@@ -41,23 +42,22 @@
 
         render () {
             return (
-                <div id='howto'>
+                <div >
                     <Grid  style={{'margin':0}}>
                         <Col hiddenDown="sm" xs={12} sm={12} md={12} lg={12} xl={12} className='containercontenthowtouse' style={{'padding':0, 'backgroundImage': `url(${this.backgroundDesktop}`}}>
                             <Row top={['md','lg','xl']} className='withoutmarpadd' style={{'height':'-webkit-fill-available', 'margin':0, 'padding':0}}>
                                 <Col hiddenDown="sm" xs={12} sm={12} md={12} lg={12} className=''>
                                     <div className='title' >{this.title}</div>
                                 </Col>
-                                <Row style={{'width': '100%', 'margin-top':'50px', 'margin-left':0, 'margin-right':0}}>
+                                <Row style={{'width': '100%', 'margin-top':'60px', 'margin-left':0, 'margin-right':0, 'padding':'0 10% 30px 10%'}}>
                                 {this.items.map((item) =>
                                     <Col hiddenDown="sm" xs={3} md={3} lg={3} xl={3} className=''>
-                                        <div className='divimagesHowtouse' style={{'height': (this.state.windowWidth * 0.13), 'width':(this.state.windowWidth * 0.13)}}>
-                                            <img className='imagesHowtouse' src={item.image} style={{'height':(this.state.windowWidth * 0.13), 'width':(this.state.windowWidth * 0.13)}}></img>
+                                        <div className='divimagesHowtouse' style={{'height': (this.state.windowWidth * 0.1), 'width':(this.state.windowWidth * 0.1)}}>
+                                            <img className='imagesHowtouse' src={item.image} style={{'height':(this.state.windowWidth * 0.1), 'width':(this.state.windowWidth * 0.1)}}></img>
                                         </div>
                                         <div className='titlehowtouse'>{item.title}</div>
                                         <div className='content flow-text-howtouse'>{item.content}</div>
-                                        <div className='center-elements'>BUTTON</div>
-                                        <div className=''>BUTTON</div>
+                                        <ButtonHowToUse name={'Learn more'}/>
                                     </Col>
                                 )}
                                 </Row>
@@ -93,7 +93,7 @@
                                             <div className='center-elements'>
                                                 <div className='titlehowtouse'>{item.title}</div>
                                                 <div className='center-elements content flow-text-howtouse'>{item.content}</div>
-                                                <div className='center-elements'>BUTTON</div>
+                                                <ButtonHowToUse name={'Learn more'}/>
                                             </div>
                                         </Col>
                                     </Row>

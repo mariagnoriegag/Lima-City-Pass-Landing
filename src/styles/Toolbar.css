@@ -2,6 +2,16 @@
     padding: 28px;
     background: transparent;
     font-family: Poppins, serif;
+
+}
+
+.lcp-toolbar a {
+    cursor: pointer;
+}
+.sticky {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
 }
 .shortcut-toolbar {
     font-family: Poppins, serif;
@@ -32,7 +42,6 @@
     background-size: 30px 30px;
     transform: perspective(250px) scale3d(1, 1, 1) translateY(3%);
 }
-
 .buynow {
     border-radius: 30px;
     background: #FF3056 center no-repeat;
