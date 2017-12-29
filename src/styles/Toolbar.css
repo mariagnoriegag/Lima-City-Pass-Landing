@@ -2,11 +2,11 @@
     padding: 28px;
     background: transparent;
     font-family: Poppins, serif;
-
 }
 
 .lcp-toolbar a {
     cursor: pointer;
+    z-index: 1;
 }
 .sticky {
     position: -webkit-sticky; /* Safari */
@@ -20,8 +20,16 @@
     color: #ffffff;
     text-decoration: none;
 }
+.shortcut-toolbar.othercolor {
+    color: #000000;
+}
+
 .shortcut-toolbar:hover {
     text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #FFF3FB , 0 0 70px #FFF3FB , 0 0 80px #FFF3FB , 0 0 100px #FFF3FB ;
+
+}
+.shortcut-toolbar.othercolor:hover {
+    text-shadow: 0 0 10px #9887FF , 0 0 20px #9887FF , 0 0 30px #8171EE;
 
 }
 .signin {
@@ -98,4 +106,8 @@
     from { background-color: #FF3056; }
     50% {background-color: #4F485A;}
     to { background-color: #EF8072; }
+}
+
+.text_align {
+    text-align: center;
 }

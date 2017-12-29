@@ -59,7 +59,7 @@ class WhatsIncluded extends Component {
                 <Grid style={{'margin': 0, 'padding': 0, 'width':'100%'}}>
                     <Col hiddenDown="sm" md={12} lg={12} xl={12} className='' style={{'padding':'0 0 0 0'}}>
                         <Row className='withoutmarpadd' style={{'height':'-webkit-fill-available', 'margin':0, 'padding':0}}>
-                            <Row className='containercontentwhatisincluded' style={{'padding':'0 10% 3% 10%', 'backgroundImage': `url(${this.background}`}}>
+                            <Row className='containercontentwhatisincluded' style={{'padding':'0 10% 3% 10%', 'margin':'0', 'backgroundImage': `url(${this.background}`}}>
                                 <Col hiddenDown="sm"  md={12} lg={12} style={{'padding':'0 0 20px 0'}}>
                                     <div className='titlewhatis' >{this.title}</div>
                                 </Col>

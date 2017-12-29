@@ -26,11 +26,12 @@ import LcpLogoImage from '../assets/limalogowhite.png';
         this.updateDimensions = this.updateDimensions.bind(this);
     };
 
-    updateDimensions(e) {
+    updateDimensions() {
         this.setState({
-            windowHeight: (window.innerHeight),
-            windowWidth: (window.innerWidth)
+            windowHeight: window.innerHeight,
+            windowWidth: window.innerWidth
         });
+
     }
 
     componentDidMount () {
@@ -52,20 +53,31 @@ import LcpLogoImage from '../assets/limalogowhite.png';
     };
 
     render() {
+        let fixedLogoClass = ['logofront'];
+        let heightLogo = this.state.windowHeight * 0.5 - this.state.scrollPosition*0.95;
+        if(this.state.scrollPosition > 320) {
+            fixedLogoClass.push('fix');
+            heightLogo = 60.95;
+        } else {
+            heightLogo = this.state.windowHeight * 0.5 - this.state.scrollPosition*0.95;
+        }
+        if (this.state.scrollPosition > (this.state.windowHeight-30)) {
+            fixedLogoClass.push('delete');
+        }
         return (
-            <div >
-                <div className="background" style={{'backgroundImage': `url(${this.background}`, 'display': 'table'}}>
-                    <div style={{'position': 'absolute', 'width': '100%'}}>
+            <div>
+                <div className="background" style={{'backgroundImage': `url(${this.background}`}}>
+                    <div style={{'position': 'fixed', 'width': '100%', 'z-index':'2'}}>
                         <LcpToolbar elements={this.toolbarElements} />
                     </div>
-                    <div style={{'display':'table-cell', 'vertical-align':'middle'}}>
-                        <img src={this.logo} style={{'height': (this.state.windowHeight*0.5 - this.state.scrollPosition*0.95)}}/>
+                    <div className={fixedLogoClass.join(' ')}>
+                        <div className='centerblock'>
+                            <img src={this.logo} style={{'height': heightLogo}}/>
+                        </div>
                     </div>
+
                 </div>
             </div>
-
-
-
         )
     }
 }
