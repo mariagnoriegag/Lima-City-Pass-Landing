@@ -62,7 +62,7 @@ class Footer extends Component {
                                 <Row className='withoutmarpadd column2'>
                                     {this.titles.map((title) =>
                                         <Col hiddenDown="sm" md={12} lg={12} xl={12} className='titlesspace uppertext'>
-                                            <Link to={title.to} spy={true} smooth={true} delay={0} duration={800} offset={0}>{title.text}</Link>
+                                            <Link to={title.to} spy={true} smooth={true} delay={0} duration={800} offset={-15}>{title.text}</Link>
                                         </Col>
                                     )}
                                     {this.creditcard.map((card) =>

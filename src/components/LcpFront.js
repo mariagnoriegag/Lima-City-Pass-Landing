@@ -8,7 +8,8 @@ import LcpLogo from './LcpLogo';
 import "../styles/Front.css"
 
 import LcpLogoImage from '../assets/limalogowhite.png';
- import {Events, scrollSpy} from "react-scroll/modules/index";
+import * as Scroll from 'react-scroll';
+import { Link, DirectLink, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 
  class LcpFront extends Component {
 
@@ -37,13 +38,20 @@ import LcpLogoImage from '../assets/limalogowhite.png';
     componentDidMount () {
         window.addEventListener('scroll', this.handleScroll);
         window.addEventListener("resize", this.updateDimensions);
-
+        Events.scrollEvent.register('begin', function(to, element) {
+            console.log("begin", arguments);
+        });
+        Events.scrollEvent.register('end', function(to, element) {
+            console.log("end", arguments);
+        });
+        scrollSpy.update();
     };
 
     componentWillUnmount () {
         window.removeEventListener('scroll', this.handleScroll);
         window.removeEventListener("resize", this.updateDimensions);
-
+        Events.scrollEvent.remove('begin');
+        Events.scrollEvent.remove('end');
     };
 
     handleScroll () {
@@ -61,25 +69,24 @@ import LcpLogoImage from '../assets/limalogowhite.png';
         } else {
             heightLogo = this.state.windowHeight * 0.5 - this.state.scrollPosition*0.95;
         }
-        if (this.state.scrollPosition > (this.state.windowHeight-30)) {
+        /*if (this.state.scrollPosition > (this.state.windowHeight-30)) {
             fixedLogoClass.push('delete');
-        }
-        return (
-            <div>
-                <div className="background" style={{'backgroundImage': `url(${this.background}`}}>
-                    <div style={{'position': 'fixed', 'width': '100%', 'z-index':'2'}}>
-                        <LcpToolbar elements={this.toolbarElements} />
-                    </div>
-                    <div className={fixedLogoClass.join(' ')}>
-                        <div className='centerblock'>
-                            <img src={this.logo} style={{'height': heightLogo}}/>
-                        </div>
-                    </div>
-
+        }*/
+        return <div>
+            <div className="background" style={{'backgroundImage': `url(${this.background}`}}>
+                <div style={{'position': 'fixed', 'width': '100%', 'z-index': '2'}}>
+                    <LcpToolbar elements={this.toolbarElements}/>
+                </div>
+                <div className={fixedLogoClass.join(' ')}>
+                    <Link to={'lcp'} spy={true} smooth={true} delay={0}
+                          duration={800}
+                          offset={0}>
+                        <img className='logoimg' src={this.logo} style={{'height': heightLogo}}/>
+                    </Link>
                 </div>
             </div>
-        )
+        </div>
     }
-}
+ }
 
-export default LcpFront;
+ export default LcpFront;

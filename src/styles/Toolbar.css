@@ -1,12 +1,15 @@
 .lcp-toolbar {
-    padding: 28px;
+    padding: 20px 0 10px 0 ;
     background: transparent;
     font-family: Poppins, serif;
+    z-index: 1;
+}
+.lcp-toolbar.newcolor {
+    background: RGBA(36, 50, 54, 1.00);
 }
 
 .lcp-toolbar a {
     cursor: pointer;
-    z-index: 1;
 }
 .sticky {
     position: -webkit-sticky; /* Safari */
@@ -21,7 +24,7 @@
     text-decoration: none;
 }
 .shortcut-toolbar.othercolor {
-    color: #000000;
+    color: white;
 }
 
 .shortcut-toolbar:hover {
@@ -29,7 +32,7 @@
 
 }
 .shortcut-toolbar.othercolor:hover {
-    text-shadow: 0 0 10px #9887FF , 0 0 20px #9887FF , 0 0 30px #8171EE;
+    text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1);
 
 }
 .signin {
